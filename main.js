@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
 	const mainInformation = document.querySelector("#main-inform"),
+		body = document.querySelector("body"),
 		elSearch = document.querySelector("#input"),
 		API = "3a8b342edae5c733d0bfd144646d7061";
 
@@ -11,11 +12,37 @@ window.addEventListener("DOMContentLoaded", () => {
 				`https://api.openweathermap.org/data/2.5/weather?q=${getInputValue}&appid=${API}`
 			)
 				.then((Response) => Response.json())
-                .then((json) => weather(json));
-    
+				.then((json) => weather(json));
 
 			function weather(json) {
-				console.log(json.main);
+				if (Math.round(json.main.temp - 273) < 0) {
+					body.style.backgroundImage = 'url("./img/winter.jpg")';
+					body.style.backgroundSize = "cover";
+					body.style.backgroundRepeat = "no-repeat";
+					body.style.backgroundPosition = "top center";
+				} else if (
+					0 < Math.round(json.main.temp - 273) &&
+					Math.round(json.main.temp - 273) < 5
+				) {
+					body.style.backgroundImage = 'url("./img/sky.jpg")';
+					body.style.backgroundSize = "cover";
+					body.style.backgroundRepeat = "no-repeat";
+					body.style.backgroundPosition = "top center";
+				} else if (
+					5 < Math.round(json.main.temp - 273) &&
+					Math.round(json.main.temp - 273) < 20
+				) {
+					body.style.backgroundImage = 'url("./img/sunnyDay.jpg")';
+					body.style.backgroundSize = "cover";
+					body.style.backgroundRepeat = "no-repeat";
+					body.style.backgroundPosition = "top center";
+				} else {
+					body.style.backgroundImage = 'url("./img/wallpaperbetter.jpg")';
+					body.style.backgroundSize = "cover";
+					body.style.backgroundRepeat = "no-repeat";
+					body.style.backgroundPosition = "top center";
+				}
+
 				const country = json.sys.country,
 					name = json.name,
 					date = new Date().getDate();
