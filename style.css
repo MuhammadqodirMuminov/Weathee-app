@@ -1,0 +1,119 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: monospace;
+	background-image: url("./img/thunder.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+.weather-App {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background-image: linear-gradient(
+		to bottom,
+		rgb(0, 0, 0, 0.6),
+		rgb(0, 0, 0, 0.3)
+	);
+}
+
+header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 50px 15px 15px;
+}
+
+header input {
+	max-width: 300px;
+	width: 100%;
+	border: none;
+	outline: none;
+	padding: 15px 15px;
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 16px 0px 16px 0px;
+	color: #333;
+	transition: all 0.5s ease-in-out;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+header input:focus {
+	box-shadow: 5px 5px 39px 9px rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+main,
+#main-inform {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+}
+
+#main-inform {
+	padding: 25px 25px 50px;
+}
+
+.location {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 25px;
+}
+
+.city,
+.date,
+.degree {
+	color: #fff;
+	font-size: 35px;
+	font-weight: 600;
+	text-shadow: 1px 1px 2px rgb(251, 248, 248), 0 0 1em rgb(206, 206, 216),
+		0 0 0.2em rgb(237, 237, 241);
+}
+
+.main-temp {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.temp {
+	color: #fff;
+	font-size: 110px;
+	font-weight: 600;
+	text-shadow: 1px 1px 2px rgb(251, 248, 248), 0 0 1em rgb(186, 186, 251),
+		0 0 0.2em rgb(237, 237, 241);
+}
+
+.temp-span {
+	font-size: 48px;
+}
+
+.weather {
+	color: #fff;
+	font-size: 60px;
+	font-weight: 600;
+	text-shadow: 1px 1px 2px rgb(251, 248, 248), 0 0 1em rgb(186, 186, 251),
+		0 0 0.2em rgb(237, 237, 241);
+}
+
+@media (max-width: 768px) {
+	.weather-App {
+		display: flex;
+        flex-direction: column;
+	}
+	main {
+		width: 100%;
+	}
+	header {
+		width: 100%;
+	}
+}
